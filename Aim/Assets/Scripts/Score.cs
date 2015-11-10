@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour {
 
@@ -9,9 +10,15 @@ public class Score : MonoBehaviour {
 	private PhpSender sender;
 	private int timer = 0;
 	private bool canTime = false;
+	private Text scoreText;
+	private Text waveText;
+	private int wave = 0;
+
 
 	void Start () {
 		sender = GameObject.Find ("PhpSender").GetComponent<PhpSender>();
+		scoreText = GameObject.Find ("ScoreText").GetComponent<Text> ();
+		waveText = GameObject.Find ("WaveText").GetComponent<Text>();
 	}
 
 	//Getter
@@ -25,6 +32,8 @@ public class Score : MonoBehaviour {
 	}
 
 	void Update () {
+		scoreText.text = "Score: " + score;
+		waveText.text = "Wave: " + wave;
 		if (canTime) {
 			timer++;
 		}
