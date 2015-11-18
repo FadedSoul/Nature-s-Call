@@ -12,8 +12,7 @@ public class Score : MonoBehaviour {
 	private bool canTime = false;
 	private Text scoreText;
 	private Text waveText;
-	private int wave = 0;
-
+	private int wave = 1;
 
 	void Start () {
 		sender = GameObject.Find ("PhpSender").GetComponent<PhpSender>();
@@ -21,7 +20,12 @@ public class Score : MonoBehaviour {
 		waveText = GameObject.Find ("WaveText").GetComponent<Text>();
 	}
 
-	//Getter
+	//Wave getter
+	public int waveGetter(){
+		return wave;
+	}
+
+	//Score getter
 	public int scoreGetter(){
 		return score;
 	}

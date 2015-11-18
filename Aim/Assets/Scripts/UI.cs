@@ -10,8 +10,13 @@ public class UI : MonoBehaviour {
 	private GameObject imageObject;
 	private List<string> imageName;
 	private int imageNum = 0;
+	[SerializeField] private Text waveText;
+	private Score score;
+	private GameObject scoreObject;
 
 	void Start () {
+		scoreObject = GameObject.Find ("Main Camera");
+		score = scoreObject.GetComponent<Score> ();
 		imageObject = GameObject.Find ("CanvasTurretImage");
 		imageName = new List<string>();
 		imageName.Add ("squirrel_good_version");
@@ -31,7 +36,7 @@ public class UI : MonoBehaviour {
 	}
 
 	void Update () {
-
+		waveText.text = "Wave: " + score.scoreGetter ();
 	}
 
 	//Sound on/off button
