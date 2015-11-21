@@ -7,11 +7,14 @@ public class Spawner : MonoBehaviour {
 	//Made by Danny Kruiswijk
 
 	[SerializeField] private List<GameObject> prefabs;
+    private List<GameObject>healthBars;
 	private List<GameObject> waveContent;
+    private List<GameObject> enemies;
     private GameObject healtbarObject;
     private GameObject canvasObject;
     private GameObject spawnedEnemy;
     private GameObject spawnedHealthbar;
+    private GameObject lumberJack;
 	private int wave = 1;
 	private bool isWaving = false;
 	private int timer = 100;
@@ -19,9 +22,12 @@ public class Spawner : MonoBehaviour {
     private string tempName;
 	
 	void Start () {
+        lumberJack = Resources.Load<GameObject>("Lumberjack");
         tempName = "Healthbar";
         healtbarObject = Resources.Load<GameObject>(tempName);
         waveContent = new List<GameObject>();
+        healthBars = new List<GameObject>();
+        enemies = new List<GameObject>();
         canvasObject = GameObject.Find("Canvas");
 	}
 
@@ -31,26 +37,21 @@ public class Spawner : MonoBehaviour {
 
 	void Update () {
 		if (isWaving && timer == 100 && i < waveContent.Count) {
-            spawnedEnemy = (GameObject)Instantiate(waveContent[i], new Vector2(transform.position.x, transform.position.y), transform.rotation);
+            spawnedEnemy = (GameObject)Instantiate(waveContent[i], new Vector3(transform.position.x, transform.position.y,0f-i), transform.rotation);
             spawnedHealthbar = (GameObject)Instantiate(healtbarObject, new Vector3(spawnedEnemy.transform.position.x, spawnedEnemy.transform.position.y,0f), transform.rotation);
             spawnedHealthbar.transform.parent = canvasObject.transform;
+            enemies.Add(spawnedEnemy);
+            healthBars.Add(spawnedHealthbar);
             spawnedHealthbar.transform.localScale = new Vector3(44f,44f,1f);
             i++;
 		}
         if (GameObject.Find("Lumberjack(Clone)"))
         {
-            spawnedHealthbar.transform.position = new Vector3(spawnedEnemy.transform.position.x, spawnedEnemy.transform.position.y, 0f);
+            for (int k = 0; k < enemies.Count; k++)
+            {
+                healthBars[k].transform.position = new Vector3(enemies[k].transform.position.x+0.1f, enemies[k].transform.position.y +0.66f, 0f);
+            }
         }
-        //spawnedHealthbar.transform.position = new Vector3(spawnedEnemy.transform.position.x,spawnedEnemy.transform.position.y,0f);
-			/*
-			for(int i = 0; i < waveContent.Count; i++){
-				Debug.Log("Test");
-				StartCoroutine(Wait());
-				//InvokeRepeating
-				GameObject spawnedEnemy = (GameObject)Instantiate(waveContent[i], new Vector2(transform.position.x,transform.position.y),transform.rotation);
-			}
-			isWaving = false;
-			*/
 		timer--;
 		if(timer < 0){
 			timer = 100;
@@ -62,7 +63,7 @@ public class Spawner : MonoBehaviour {
 			isWaving = true;
 			switch(wave){
 			case 1:
-				waveContent.AddRange (new GameObject[]{Resources.Load <GameObject>("Lumberjack"),Resources.Load <GameObject>("Lumberjack"),Resources.Load <GameObject>("Lumberjack")});
+				waveContent.AddRange (new GameObject[]{lumberJack,lumberJack,lumberJack});
 				break;
 			case 2:
 				break;
@@ -76,9 +77,4 @@ public class Spawner : MonoBehaviour {
 			GameObject spawnedEnemy = (GameObject)Instantiate(waveContent[i], new Vector2(transform.position.x,transform.position.y),transform.rotation);
 		}
 	}
-	/*
-	IEnumerator Wait(){
-		yield return new WaitForSeconds(2);
-	}
-	*/
 }
