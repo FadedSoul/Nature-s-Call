@@ -12,14 +12,9 @@ public class BearScript : MonoBehaviour {
 	}
 
 	void Update () {
-		hitColliders = Physics2D.OverlapCircleAll(transform.position, 1f);
-        //Debug.Log(hitColliders);
+        hitColliders = Physics2D.OverlapCircleAll(transform.position, 1f);
 		if(hitColliders.Length > 0){
-			if(hitColliders[0].transform.position.x < transform.position.x){
-				transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
-			}else{
-				transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-			}
+			//
 		}
 	}
 

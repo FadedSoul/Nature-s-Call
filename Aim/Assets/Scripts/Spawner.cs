@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour {
     private GameObject lumberJack;
 	private int wave = 1;
 	private bool isWaving = false;
-	private int timer = 100;
+	private int timer = 120;
 	private int i;
     private string tempName;
 	
@@ -31,12 +31,22 @@ public class Spawner : MonoBehaviour {
         canvasObject = GameObject.Find("Canvas");
 	}
 
-	public int waveGetter(){
+    public List<GameObject> healthBarsGetter()
+    {
+        return healthBars;
+    }
+
+    public List<GameObject> enemiesGetter()
+    {
+        return enemies;
+    }
+
+    public int waveGetter(){
 		return wave;
 	}
 
 	void Update () {
-		if (isWaving && timer == 100 && i < waveContent.Count) {
+		if (isWaving && timer == 120 && i < waveContent.Count) {
             spawnedEnemy = (GameObject)Instantiate(waveContent[i], new Vector3(transform.position.x, transform.position.y,0f-i), transform.rotation);
             spawnedHealthbar = (GameObject)Instantiate(healtbarObject, new Vector3(spawnedEnemy.transform.position.x, spawnedEnemy.transform.position.y,0f), transform.rotation);
             spawnedHealthbar.transform.parent = canvasObject.transform;
@@ -49,16 +59,35 @@ public class Spawner : MonoBehaviour {
         {
             for (int k = 0; k < enemies.Count; k++)
             {
+                float tempHealth = enemies[k].GetComponent<EnemyScript>().healthGetter();
+                if (tempHealth <= 0)
+                {
+                    //Invoke("removeListItems(k)", 1f);
+                    //StartCoroutine(removeList(false, 0.1f,k));
+                }
                 healthBars[k].transform.position = new Vector3(enemies[k].transform.position.x+0.1f, enemies[k].transform.position.y +0.66f, 0f);
             }
         }
 		timer--;
 		if(timer < 0){
-			timer = 100;
+			timer = 120;
 		}
 	}
 
-	public void nextWave(){
+    void removeListItems(int k)
+    {
+        enemies.RemoveAt(k);
+        healthBars.RemoveAt(k);
+    }
+
+    IEnumerator removeList(bool status, float delayTime, int k)
+    {
+        yield return new WaitForSeconds(delayTime);
+        enemies.RemoveAt(k);
+        healthBars.RemoveAt(k);
+    }
+
+    public void nextWave(){
 		if(!isWaving){
 			isWaving = true;
 			switch(wave){
