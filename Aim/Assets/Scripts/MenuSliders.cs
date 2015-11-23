@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MenuSliders : MonoBehaviour {
 
     private bool Open;
+    public int slide = 0;
 	// Use this for initialization
     void Start()
     {
@@ -17,14 +18,14 @@ public class MenuSliders : MonoBehaviour {
 	public void Slide () {
         if (Open == false)
         {
-            transform.position += Vector3.left * 4;
+            transform.position += Vector3.left * slide;
             Open = true;
         }
         else
         {
             if (Open == true)
             {
-                transform.position += Vector3.right * 4;
+                transform.position += Vector3.right * slide;
                 Open = false;
             }
         }

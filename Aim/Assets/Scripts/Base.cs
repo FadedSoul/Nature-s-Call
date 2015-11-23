@@ -25,11 +25,9 @@ public class Base : MonoBehaviour {
         }
 	}
 
-    void OnTriggerEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "enemy")
-        {
-            //_lives - 1f;
-        }
+        if (col.gameObject.tag == ("enemy"))
+            _lives = -1f;
     }
 }
