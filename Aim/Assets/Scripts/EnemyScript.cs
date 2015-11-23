@@ -13,8 +13,10 @@ public class EnemyScript : MonoBehaviour {
 	public Vector2 bewegingsVector = Vector2.zero;
 	private Waypoint targetWaypoint;
 	private GameObject movementLine;
+    private Score score;
 	
 	void Start () {
+        score = GameObject.Find("Main Camera").GetComponent<Score>();
 		targetWaypoint = this.FindClosestWaypoint();
 	}
 
@@ -32,7 +34,9 @@ public class EnemyScript : MonoBehaviour {
     {
         if (health <= 0)
         {
-            Invoke("destroyEnemy", 0.01f);
+            Invoke("destroyEnemy", 0.001f);
+            Debug.Log("Dood");
+            score.coinSetter(-40);
         }
         this.MoveToWaypoit(targetWaypoint);
     }

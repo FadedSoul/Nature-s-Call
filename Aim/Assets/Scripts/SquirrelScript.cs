@@ -9,7 +9,7 @@ public class SquirrelScript : MonoBehaviour {
     private GameObject enemyObject;
     private Collider2D[] hitColliders;
     private GameObject acorn;
-    private float counter = 0f;
+    private float reloadTimer = 0f;
     private GameObject spawnedAcorn;
     private List<GameObject> allSpawnedAcorns;
     private bool isSpawned = false;
@@ -39,9 +39,9 @@ public class SquirrelScript : MonoBehaviour {
                 enemyScript.healthSetter(tempFloat - power);
             }
         }
-        if (counter != 0)
+        if (reloadTimer != 0)
         {
-            counter--;
+            reloadTimer--;
         }
         hitColliders = Physics2D.OverlapCircleAll(transform.position, 2f,1);
         if (hitColliders.Length > 0)
@@ -52,9 +52,9 @@ public class SquirrelScript : MonoBehaviour {
                 Vector3 dir = hitColliders[hitColliders.Length-1].transform.position - transform.position;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-                if (counter <= 0)
+                if (reloadTimer <= 0)
                 {
-                    counter = 100f;
+                    reloadTimer = 100f;
                     spawnedAcorn = (GameObject)Instantiate(acorn, new Vector3(transform.position.x, transform.position.y, 10f), transform.rotation);
                     allSpawnedAcorns.Add(spawnedAcorn);
                     startFloat = 0f;

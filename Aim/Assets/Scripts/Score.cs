@@ -12,13 +12,26 @@ public class Score : MonoBehaviour {
 	private bool canTime = false;
 	private Text scoreText;
 	private Text waveText;
+    private Text coinText;
 	private int wave = 1;
+    private int coins = 100;
 
 	void Start () {
 		sender = GameObject.Find ("PhpSender").GetComponent<PhpSender>();
 		scoreText = GameObject.Find ("ScoreText").GetComponent<Text> ();
 		waveText = GameObject.Find ("WaveText").GetComponent<Text>();
-	}
+        coinText = GameObject.Find("CoinText").GetComponent<Text>();
+    }
+
+    public int coinGetter()
+    {
+        return coins;
+    }
+
+    public void coinSetter(int tempInt)
+    {
+        coins -= tempInt;
+    }
 
 	//Wave getter
 	public int waveGetter(){
@@ -38,6 +51,7 @@ public class Score : MonoBehaviour {
 	void Update () {
 		scoreText.text = "Score: " + score;
 		waveText.text = "Wave: " + wave;
+        coinText.text = "" + coins;
 		if (canTime) {
 			timer++;
 		}

@@ -102,7 +102,6 @@ public class Spawner : MonoBehaviour {
 
 	void spawnWave(){
 		for(int i = 0; i < waveContent.Count; i++){
-			Debug.Log("Test");
 			GameObject spawnedEnemy = (GameObject)Instantiate(waveContent[i], new Vector2(transform.position.x,transform.position.y),transform.rotation);
 		}
 	}
