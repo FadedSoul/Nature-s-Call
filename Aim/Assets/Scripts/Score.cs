@@ -8,37 +8,51 @@ public class Score : MonoBehaviour {
 
 	private int score = 0;
 	private PhpSender sender;
+    private Spawner spawner;
 	private int timer = 0;
 	private bool canTime = false;
 	private Text scoreText;
 	private Text waveText;
     private Text coinText;
-	private int wave = 1;
+    private Text livesText;
+	private int tempWave;
     private int coins = 100;
+    private int lives = 10;
 
 	void Start () {
+        spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
 		sender = GameObject.Find ("PhpSender").GetComponent<PhpSender>();
 		scoreText = GameObject.Find ("ScoreText").GetComponent<Text> ();
 		waveText = GameObject.Find ("WaveText").GetComponent<Text>();
         coinText = GameObject.Find("CoinText").GetComponent<Text>();
+        livesText = GameObject.Find("LivesText").GetComponent<Text>();
     }
 
+    //Lives Getter
+    public int livesGetter()
+    {
+        return lives;
+    }
+
+    //Lives Setter
+    public void livesSetter(int tempInt)
+    {
+        lives -= tempInt;
+    }
+
+    //Coin Getter
     public int coinGetter()
     {
         return coins;
     }
-
+    
+    //Coin Setter
     public void coinSetter(int tempInt)
     {
         coins -= tempInt;
     }
 
-	//Wave getter
-	public int waveGetter(){
-		return wave;
-	}
-
-	//Score getter
+	//Score Getter
 	public int scoreGetter(){
 		return score;
 	}
@@ -49,9 +63,11 @@ public class Score : MonoBehaviour {
 	}
 
 	void Update () {
+        tempWave = spawner.waveGetter();
 		scoreText.text = "Score: " + score;
-		waveText.text = "Wave: " + wave;
+		waveText.text = "Wave: " + tempWave;
         coinText.text = "" + coins;
+        livesText.text = "" + lives;
 		if (canTime) {
 			timer++;
 		}

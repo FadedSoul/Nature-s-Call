@@ -25,6 +25,11 @@ public class EnemyScript : MonoBehaviour {
         return health;
     }
 
+    public Waypoint wayPointGetter()
+    {
+        return targetWaypoint;
+    }
+
     public void healthSetter(float tempInt)
     {
         health = tempInt;
@@ -35,10 +40,14 @@ public class EnemyScript : MonoBehaviour {
         if (health <= 0)
         {
             Invoke("destroyEnemy", 0.001f);
-            Debug.Log("Dood");
             score.coinSetter(-40);
+            score.addScore10();
         }
         this.MoveToWaypoit(targetWaypoint);
+        if (targetWaypoint == null)
+        {
+            Invoke("destroyEnemy", 0.001f);
+        }
     }
 
     void MoveToWaypoit(Waypoint waypoint)

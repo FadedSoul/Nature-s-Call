@@ -23,7 +23,7 @@ public class UI : MonoBehaviour {
         score = scoreObject.GetComponent<Score> ();
 		imageObject = GameObject.Find ("CanvasTurretImage");
 		imageName = new List<string>();
-		imageName.Add ("squirrel_good_version");
+		imageName.Add ("Squirrel_Img");
 		imageName.Add ("beer_character");
 		imageName.Add ("Moose_af");
 	}

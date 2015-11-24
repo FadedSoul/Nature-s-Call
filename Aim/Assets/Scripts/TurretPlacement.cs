@@ -42,7 +42,7 @@ public class TurretPlacement : MonoBehaviour {
 	{
 		if(Input.GetMouseButtonDown(0)){
 			switch(spriteRenderer.sprite.name){
-                case "squirrel_good_version":
+                case "Squirrel_Img":
                     if (tempCoins >= 100)
                     {
                         spawnedSquirrel = (GameObject)Instantiate(towerPrefabs[0], camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f)), transform.rotation);

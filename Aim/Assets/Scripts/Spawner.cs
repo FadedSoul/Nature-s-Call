@@ -17,11 +17,14 @@ public class Spawner : MonoBehaviour {
     private GameObject lumberJack;
 	private int wave = 1;
 	private bool isWaving = false;
-	private int timer = 120;
+    private int waveSpawnCooldown = 120;
+	private int timer;
 	private int i;
     private string tempName;
+    private bool canStartNewWave = false;
 	
 	void Start () {
+        timer = waveSpawnCooldown;
         lumberJack = Resources.Load<GameObject>("Lumberjack");
         tempName = "Healthbar";
         healtbarObject = Resources.Load<GameObject>(tempName);
@@ -45,8 +48,14 @@ public class Spawner : MonoBehaviour {
 		return wave;
 	}
 
-	void Update () {
-		if (isWaving && timer == 120 && i < waveContent.Count) {
+    public void isWavingSetter(bool tempBool)
+    {
+        isWaving = tempBool;
+    }
+
+	void FixedUpdate () {
+		if (isWaving && timer == waveSpawnCooldown && i < waveContent.Count) {
+            canStartNewWave = true;
             spawnedEnemy = (GameObject)Instantiate(waveContent[i], new Vector3(transform.position.x, transform.position.y,0f-i), transform.rotation);
             spawnedHealthbar = (GameObject)Instantiate(healtbarObject, new Vector3(spawnedEnemy.transform.position.x, spawnedEnemy.transform.position.y,0f), transform.rotation);
             spawnedHealthbar.transform.parent = canvasObject.transform;
@@ -55,6 +64,12 @@ public class Spawner : MonoBehaviour {
             spawnedHealthbar.transform.localScale = new Vector3(44f,44f,1f);
             i++;
 		}
+        if (isWaving && enemies.Count == 0 && canStartNewWave)
+        {
+            wave++;
+            isWaving = false;
+            canStartNewWave = false;
+        }
         if (GameObject.Find("Lumberjack(Clone)"))
         {
             for (int k = 0; k < enemies.Count; k++)
@@ -70,10 +85,11 @@ public class Spawner : MonoBehaviour {
         }
 		timer--;
 		if(timer < 0){
-			timer = 120;
+			timer = waveSpawnCooldown;
 		}
 	}
 
+    /*
     void removeListItems(int k)
     {
         enemies.RemoveAt(k);
@@ -86,17 +102,33 @@ public class Spawner : MonoBehaviour {
         enemies.RemoveAt(k);
         healthBars.RemoveAt(k);
     }
+    */
 
     public void nextWave(){
 		if(!isWaving){
+            i = 0;
 			isWaving = true;
 			switch(wave){
 			case 1:
-				waveContent.AddRange (new GameObject[]{lumberJack,lumberJack,lumberJack});
-				break;
+                    waveContent.Clear();
+                    waveContent.AddRange (new GameObject[]{lumberJack,lumberJack,lumberJack});
+                    break;
 			case 2:
-				break;
-			}
+                    waveContent.Clear();
+                    waveSpawnCooldown = 100;
+                    waveContent.AddRange(new GameObject[]{lumberJack, lumberJack, lumberJack, lumberJack, lumberJack});
+				    break;
+            case 3:
+                    waveContent.Clear();
+                    waveSpawnCooldown = 80;
+                    waveContent.AddRange(new GameObject[] {lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack});
+                    break;
+                case 4:
+                    waveContent.Clear();
+                    waveSpawnCooldown = 60;
+                    waveContent.AddRange(new GameObject[] { lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack});
+                    break;
+            }
 		}
 	}
 
