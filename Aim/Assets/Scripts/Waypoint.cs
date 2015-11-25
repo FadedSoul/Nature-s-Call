@@ -1,17 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Waypoint : MonoBehaviour {
+public class Waypoint : MonoBehaviour
+{
+    //Made by Danny Kruiswijk
 
 	public Waypoint nextWaypoint;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

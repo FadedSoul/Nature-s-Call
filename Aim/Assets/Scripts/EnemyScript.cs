@@ -1,27 +1,56 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour {
 
 	//Made by Danny Kruiswijk
 	
 	private float speed = 1;
+    private float health = 100;
 	
 	public Vector2 bewegingsVector = Vector2.zero;
 	private Waypoint targetWaypoint;
 	private GameObject movementLine;
+    private Score score;
 	
 	void Start () {
+        score = GameObject.Find("Main Camera").GetComponent<Score>();
 		targetWaypoint = this.FindClosestWaypoint();
 	}
 
-	void FixedUpdate()
-	{
-		this.MoveToWaypoit(targetWaypoint);
-	}
+    public float healthGetter()
+    {
+        return health;
+    }
 
-	void MoveToWaypoit(Waypoint waypoint)
+    public Waypoint wayPointGetter()
+    {
+        return targetWaypoint;
+    }
+
+    public void healthSetter(float tempInt)
+    {
+        health = tempInt;
+    }
+
+    void FixedUpdate()
+    {
+        if (health <= 0)
+        {
+            Invoke("destroyEnemy", 0.001f);
+            score.coinSetter(-40);
+            score.addScore10();
+        }
+        this.MoveToWaypoit(targetWaypoint);
+        if (targetWaypoint == null)
+        {
+            Invoke("destroyEnemy", 0.001f);
+        }
+    }
+
+    void MoveToWaypoit(Waypoint waypoint)
 	{
 		if (Vector2.Distance(waypoint.gameObject.transform.position, this.transform.position) < 0.1)
 		{
@@ -58,4 +87,9 @@ public class EnemyScript : MonoBehaviour {
 		}
 		return null;
 	}
+
+    void destroyEnemy()
+    {
+        GameObject.Destroy(gameObject);
+    }
 }
