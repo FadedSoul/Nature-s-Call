@@ -13,17 +13,23 @@ public class HealthbarScript : MonoBehaviour {
     private int canRemove = 0;
     private Score score;
 
-	// Use this for initialization
 	void Start () {
         score = GameObject.Find("Main Camera").GetComponent<Score>();
         spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
 	}
 	
-	// Update is called once per frame
 	void Update () {
         canRemove++;
-        tempHPList = spawner.healthBarsGetter();
-        tempEnemiesList = spawner.enemiesGetter();
+        if (spawner.healthBarsGetter() != null)
+        {
+            tempHPList = spawner.healthBarsGetter();
+        }
+        if (spawner.enemiesGetter() != null)
+        {
+            tempEnemiesList = spawner.enemiesGetter();
+        }
+        //tempHPList = spawner.healthBarsGetter();
+        //tempEnemiesList = spawner.enemiesGetter();
         for (int i = 0; i < tempHPList.Count; i++)
         {
             Image[] image = tempHPList[i].GetComponentsInChildren<Image>();

@@ -1,0 +1,497 @@
+fileFormatVersion: 2
+guid: a7f8f42dbbe45e246a9607fbc4378164
+timeCreated: 1448643249
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Squirrel_Attack_Spritesheet_0
+    21300002: Squirrel_Attack_Spritesheet_1
+    21300004: Squirrel_Attack_Spritesheet_2
+    21300006: Squirrel_Attack_Spritesheet_3
+    21300008: Squirrel_Attack_Spritesheet_4
+    21300010: Squirrel_Attack_Spritesheet_5
+    21300012: Squirrel_Attack_Spritesheet_6
+    21300014: Squirrel_Attack_Spritesheet_7
+    21300016: Squirrel_Attack_Spritesheet_8
+    21300018: Squirrel_Attack_Spritesheet_9
+    21300020: Squirrel_Attack_Spritesheet_10
+    21300022: Squirrel_Attack_Spritesheet_11
+    21300024: Squirrel_Attack_Spritesheet_12
+    21300026: Squirrel_Attack_Spritesheet_13
+    21300028: Squirrel_Attack_Spritesheet_14
+    21300030: Squirrel_Attack_Spritesheet_15
+    21300032: Squirrel_Attack_Spritesheet_16
+    21300034: Squirrel_Attack_Spritesheet_17
+    21300036: Squirrel_Attack_Spritesheet_18
+    21300038: Squirrel_Attack_Spritesheet_19
+    21300040: Squirrel_Attack_Spritesheet_20
+    21300042: Squirrel_Attack_Spritesheet_21
+    21300044: Squirrel_Attack_Spritesheet_22
+    21300046: Squirrel_Attack_Spritesheet_23
+    21300048: Squirrel_Attack_Spritesheet_24
+    21300050: Squirrel_Attack_Spritesheet_25
+    21300052: Squirrel_Attack_Spritesheet_26
+    21300054: Squirrel_Attack_Spritesheet_27
+    21300056: Squirrel_Attack_Spritesheet_28
+    21300058: Squirrel_Attack_Spritesheet_29
+    21300060: Squirrel_Attack_Spritesheet_30
+    21300062: Squirrel_Attack_Spritesheet_31
+    21300064: Squirrel_Attack_Spritesheet_32
+    21300066: Squirrel_Attack_Spritesheet_33
+    21300068: Squirrel_Attack_Spritesheet_34
+    21300070: Squirrel_Attack_Spritesheet_35
+    21300072: Squirrel_Attack_Spritesheet_36
+    21300074: Squirrel_Attack_Spritesheet_37
+    21300076: Squirrel_Attack_Spritesheet_38
+    21300078: Squirrel_Attack_Spritesheet_39
+    21300080: Squirrel_Attack_Spritesheet_40
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Squirrel_Attack_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7482
+        width: 618
+        height: 710
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 7482
+        width: 624
+        height: 710
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 7482
+        width: 624
+        height: 710
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 7482
+        width: 624
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 2882
+        y: 7478
+        width: 624
+        height: 712
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 3610
+        y: 7478
+        width: 624
+        height: 712
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 4338
+        y: 7478
+        width: 628
+        height: 710
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 6666
+        width: 628
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 6666
+        width: 632
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 6662
+        width: 632
+        height: 712
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 6662
+        width: 632
+        height: 710
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 2951
+        y: 6662
+        width: 635
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 3698
+        y: 6662
+        width: 632
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 5842
+        width: 636
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 5842
+        width: 640
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 5842
+        width: 640
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 2258
+        y: 5842
+        width: 640
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 3014
+        y: 5838
+        width: 640
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 3774
+        y: 5838
+        width: 640
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 5014
+        width: 640
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 5014
+        width: 640
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 5010
+        width: 644
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 5010
+        width: 652
+        height: 704
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 3086
+        y: 5006
+        width: 656
+        height: 704
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 3878
+        y: 5002
+        width: 660
+        height: 707
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 4166
+        width: 664
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 4162
+        width: 668
+        height: 712
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 4162
+        width: 672
+        height: 712
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 2470
+        y: 4158
+        width: 680
+        height: 716
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 3298
+        y: 4154
+        width: 696
+        height: 720
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 4138
+        y: 4158
+        width: 684
+        height: 712
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 3318
+        width: 672
+        height: 700
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 3322
+        width: 660
+        height: 707
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 3330
+        width: 644
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 2358
+        y: 3338
+        width: 632
+        height: 708
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 3094
+        y: 3346
+        width: 624
+        height: 712
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 3814
+        y: 3346
+        width: 624
+        height: 712
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2506
+        width: 622
+        height: 712
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 2506
+        width: 620
+        height: 712
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Attack_Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 2506
+        width: 624
+        height: 712
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -41,4 +41,16 @@ public class MainMenuScript : MonoBehaviour {
 		GameObject.Find ("PlaceholderText").GetComponent<Text> ().enabled = true;
 		text.enabled = true;
 	}
+
+    public void howToPlay()
+    {
+        GameObject spawnedHowToPlayScreen = (GameObject)Instantiate(Resources.Load<GameObject>("Howtoplay"), new Vector2(0f, 0f), transform.rotation);
+        Button b = GameObject.Find("Howtoplay(Clone)").GetComponentInChildren<Button>();
+        b.onClick.AddListener(backButton);
+    }
+
+    public void backButton()
+    {
+        GameObject.Destroy(GameObject.Find("Howtoplay(Clone)"));
+    }
 }

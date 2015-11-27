@@ -9,13 +9,14 @@ public class EnemyScript : MonoBehaviour {
 	
 	private float speed = 1;
     private float health = 100;
-	
 	public Vector2 bewegingsVector = Vector2.zero;
 	private Waypoint targetWaypoint;
 	private GameObject movementLine;
     private Score score;
-	
-	void Start () {
+    private GameObject lumberjackDiePrefab;
+
+    void Start () {
+        lumberjackDiePrefab = Resources.Load<GameObject>("Lumberjack_Die");
         score = GameObject.Find("Main Camera").GetComponent<Score>();
 		targetWaypoint = this.FindClosestWaypoint();
 	}
@@ -39,6 +40,7 @@ public class EnemyScript : MonoBehaviour {
     {
         if (health <= 0)
         {
+            GameObject dieObject = (GameObject)Instantiate(lumberjackDiePrefab, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
             Invoke("destroyEnemy", 0.001f);
             score.coinSetter(-40);
             score.addScore10();
@@ -62,7 +64,6 @@ public class EnemyScript : MonoBehaviour {
 			vectorRichtingWaypoint.Normalize();
 			vectorRichtingWaypoint *= speed * Time.fixedDeltaTime;
 			this.transform.position += new Vector3(vectorRichtingWaypoint.x, vectorRichtingWaypoint.y);
-			Vector2 thispos = new Vector2(this.transform.position.x, this.transform.position.y);
 			this.bewegingsVector = vectorRichtingWaypoint;
 		}
 	}

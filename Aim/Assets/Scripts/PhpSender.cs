@@ -18,8 +18,7 @@ public class PhpSender : MonoBehaviour {
 		DontDestroyOnLoad (transform.gameObject);
 		nameObject = GameObject.Find ("Name Holder");
 		sender = nameObject.GetComponent<MainMenuScript> ();
-		tempName = sender.nameGetter ();
-		scoreKeeper = GameObject.Find("Main Camera").GetComponent<Score>();
+        tempName = sender.nameGetter();
 	}
 
 	//Puts it in a list
@@ -35,8 +34,9 @@ public class PhpSender : MonoBehaviour {
 	//Send to PHP script
 	public void startSendingProcess()
 	{
-		tempScore = scoreKeeper.scoreGetter ();
-		string scorestring = (tempName + "," + tempScore.ToString());
+        scoreKeeper = GameObject.Find("Main Camera").GetComponent<Score>();
+        tempScore = scoreKeeper.scoreGetter ();
+        string scorestring = (tempName + "," + tempScore.ToString());
 		WWWForm score = new WWWForm();
 		score.AddField("score", scorestring);
 		WWW w = new WWW("http://19083.hosts.ma-cloud.nl/aim/phpscript.php", score);

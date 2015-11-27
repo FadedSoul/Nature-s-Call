@@ -22,8 +22,10 @@ public class Spawner : MonoBehaviour {
 	private int i;
     private string tempName;
     private bool canStartNewWave = false;
-	
-	void Start () {
+    private GameObject nextWaveText;
+
+    void Start () {
+        nextWaveText = GameObject.Find("NextWaveText");
         timer = waveSpawnCooldown;
         lumberJack = Resources.Load<GameObject>("Lumberjack");
         tempName = "Healthbar";
@@ -66,6 +68,7 @@ public class Spawner : MonoBehaviour {
 		}
         if (isWaving && enemies.Count == 0 && canStartNewWave)
         {
+            nextWaveText.transform.position = new Vector2(0f, 0f);
             wave++;
             isWaving = false;
             canStartNewWave = false;
@@ -77,8 +80,8 @@ public class Spawner : MonoBehaviour {
                 float tempHealth = enemies[k].GetComponent<EnemyScript>().healthGetter();
                 if (tempHealth <= 0)
                 {
-                    //Invoke("removeListItems(k)", 1f);
-                    //StartCoroutine(removeList(false, 0.1f,k));
+                    enemies.RemoveAt(k);
+                    healthBars.RemoveAt(k);
                 }
                 healthBars[k].transform.position = new Vector3(enemies[k].transform.position.x+0.1f, enemies[k].transform.position.y +0.66f, 0f);
             }
@@ -89,23 +92,9 @@ public class Spawner : MonoBehaviour {
 		}
 	}
 
-    /*
-    void removeListItems(int k)
-    {
-        enemies.RemoveAt(k);
-        healthBars.RemoveAt(k);
-    }
-
-    IEnumerator removeList(bool status, float delayTime, int k)
-    {
-        yield return new WaitForSeconds(delayTime);
-        enemies.RemoveAt(k);
-        healthBars.RemoveAt(k);
-    }
-    */
-
     public void nextWave(){
 		if(!isWaving){
+            nextWaveText.transform.position = new Vector2(0f, 250f);
             i = 0;
 			isWaving = true;
 			switch(wave){
@@ -128,6 +117,12 @@ public class Spawner : MonoBehaviour {
                     waveSpawnCooldown = 60;
                     waveContent.AddRange(new GameObject[] { lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack, lumberJack});
                     break;
+                case 5:
+                    waveContent.Clear();
+                    waveSpawnCooldown = 20;
+                    waveContent.AddRange(new GameObject[] { lumberJack, lumberJack, lumberJack, lumberJack,});
+                    break;
+
             }
 		}
 	}

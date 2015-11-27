@@ -11,14 +11,22 @@ public class LockToMouse : MonoBehaviour {
 	private bool isMouseLock = true;
 	private bool canClick = false;
 	private Vector3 tempVector;
+    private PathScript pathScript;
+    private bool tempBool;
+    private bool canPlace;
+    private PathScript uiScript;
 
-	void Start () {
+    void Start () {
+        uiScript = GameObject.Find("LivesImage").GetComponentInChildren<PathScript>();
+        pathScript = GameObject.Find("Path_right").GetComponent<PathScript>();
         turretPlacement = GameObject.Find("CanvasTurretImage").GetComponent<TurretPlacement>();
         camera = GameObject.Find ("Main Camera").GetComponent<Camera>();
     }
 
 	void Update () {
-		tempVector = camera.ScreenToWorldPoint (new Vector3(Input.mousePosition.x,Input.mousePosition.y, 10f));
+        tempBool = pathScript.canClickGetter();
+        canPlace = uiScript.canClickGetter();
+        tempVector = camera.ScreenToWorldPoint (new Vector3(Input.mousePosition.x,Input.mousePosition.y, 10f));
 		//This Fixes a bug which occured once the button was pressed
 		if(Input.GetMouseButtonUp(0)){
 			canClick = true;
@@ -30,11 +38,18 @@ public class LockToMouse : MonoBehaviour {
         
 		//Checks if the mouse isn't hovering over the UI Menu at the Right
 		if(tempVector.x < 7){
-            if (canClick){
+            if (canClick && tempBool && canPlace){
 				if(Input.GetMouseButtonDown(0)){
 					isMouseLock = false;
                     //turretPlacement.spawnedSquirrelCircleGetter
-                    GameObject.Destroy(GameObject.Find("SquirrelCircle(Clone)"));
+                    if (GameObject.Find("SquirrelCircle(Clone)"))
+                    {
+                        GameObject.Destroy(GameObject.Find("SquirrelCircle(Clone)"));
+                    }
+                    if (GameObject.Find("BearCircle(Clone)"))
+                    {
+                        GameObject.Destroy(GameObject.Find("BearCircle(Clone)"));
+                    }
                     turretPlacement.isSpawnedSetter(false);
 				}
 			}

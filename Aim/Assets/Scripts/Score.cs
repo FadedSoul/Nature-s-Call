@@ -9,15 +9,14 @@ public class Score : MonoBehaviour {
 	private int score = 0;
 	private PhpSender sender;
     private Spawner spawner;
-	private int timer = 0;
-	private bool canTime = false;
 	private Text scoreText;
 	private Text waveText;
     private Text coinText;
     private Text livesText;
 	private int tempWave;
-    private int coins = 100;
-    private int lives = 10;
+    private int coins = 150;
+    private int lives = 5;
+    private bool canSend = true;
 
 	void Start () {
         spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
@@ -68,16 +67,16 @@ public class Score : MonoBehaviour {
 		waveText.text = "Wave: " + tempWave;
         coinText.text = "" + coins;
         livesText.text = "" + lives;
-		if (canTime) {
-			timer++;
-		}
-		//When game over
-		if(timer > 50){
-			Application.LoadLevel("Leaderboards");
-		}
-		if(Input.GetKeyDown("space")){
-			sender.startSendingProcess();
-			canTime = true;
-		}
+        if (lives <= 0 && canSend)
+        {
+            canSend = false;
+            sender.startSendingProcess();
+            Invoke("loadLevel", 1f);
+        }
 	}
+    void loadLevel()
+    {
+        Application.LoadLevel("Leaderboards");
+    }
+
 }

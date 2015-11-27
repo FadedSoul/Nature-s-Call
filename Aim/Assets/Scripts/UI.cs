@@ -15,9 +15,11 @@ public class UI : MonoBehaviour {
 	private GameObject scoreObject;
     private Text priceText;
     private int price = 100;
+    private Text pauzeText;
 
-	void Start () {
-		scoreObject = GameObject.Find ("Main Camera");
+    void Start () {
+        pauzeText = GameObject.Find("PauzeText").GetComponent<Text>();
+        scoreObject = GameObject.Find ("Main Camera");
         priceText = GameObject.Find("PriceText").GetComponent<Text>();
         waveText = GameObject.Find("WaveText").GetComponent<Text>();
         score = scoreObject.GetComponent<Score> ();
@@ -25,7 +27,7 @@ public class UI : MonoBehaviour {
 		imageName = new List<string>();
 		imageName.Add ("Squirrel_Img");
 		imageName.Add ("beer_character");
-		imageName.Add ("Moose_af");
+		//imageName.Add ("Moose_af");
 	}
 
 	public void LoadNextPic(bool LeftRight)
@@ -55,7 +57,7 @@ public class UI : MonoBehaviour {
     //Set Text
 	void Update () {
 		waveText.text = "Wave: " + score.scoreGetter ();
-        priceText.text = "Price:   " + price;
+        priceText.text = "Price  " + price;
 	}
 
 	//Sound on/off button
@@ -66,4 +68,21 @@ public class UI : MonoBehaviour {
 			AudioListener.volume = 1;
 		}
 	}
+
+    public void pauzeButton()
+    {
+        if (Time.timeScale == 1.0f)
+        {
+            Time.timeScale = 0.0f;
+            pauzeText.text = ">";
+        }
+        else
+        {
+            if (Time.timeScale == 0.0f)
+            {
+                Time.timeScale = 1.0f;
+                pauzeText.text = "| |";
+            }
+        }
+    }
 }

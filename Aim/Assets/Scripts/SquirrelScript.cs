@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class SquirrelScript : MonoBehaviour {
 
@@ -12,23 +13,23 @@ public class SquirrelScript : MonoBehaviour {
     private float reloadTimer = 0f;
     private GameObject spawnedAcorn;
     private List<GameObject> allSpawnedAcorns;
-    private float speed = 0.05f;
+    private float speed = 0.1f;
     private float startFloat = 0f;
-    private float power = 50;
+    private float power = 15;
     private GameObject whichEnemy;
-    private Spawner spawner;
-    private int tempWave;
+    private AudioSource throwSound;
+    private Animator animator;
 
     void Start()
     {
-        spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
+        animator = GetComponent<Animator>();
+        throwSound = GetComponent<AudioSource>();
         allSpawnedAcorns = new List<GameObject>();
-        acorn = Resources.Load<GameObject>("Acorn");
+        acorn = Resources.Load<GameObject>("Bullet");
     }
 
     void FixedUpdate()
     {
-        tempWave = spawner.waveGetter();
         for (int i = 0; i < allSpawnedAcorns.Count; i++)
         {
             if (whichEnemy == null)
@@ -39,6 +40,8 @@ public class SquirrelScript : MonoBehaviour {
             allSpawnedAcorns[i].transform.position = Vector2.MoveTowards(transform.position, whichEnemy.transform.position, startFloat += speed);
             if (startFloat >= 2)
             {
+                AudioSource hitSound = whichEnemy.GetComponent<AudioSource>();
+                hitSound.Play();
                 GameObject.Destroy(allSpawnedAcorns[0]);
                 allSpawnedAcorns.RemoveAt(0);
 
@@ -55,19 +58,30 @@ public class SquirrelScript : MonoBehaviour {
         if (hitColliders.Length > 0)
         {
             whichEnemy = hitColliders[hitColliders.Length - 1].gameObject;
+            if (whichEnemy.transform.position.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(-0.4f, 0.4f, 1f);
+            }
+            else
+            {
+                transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+            }
             if (hitColliders[0].gameObject.GetComponent<EnemyScript>() != null)
             {
-                //Vector3 dir = hitColliders[hitColliders.Length-1].transform.position - transform.position;
-                //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 if (reloadTimer <= 0)
                 {
-                    reloadTimer = 100f;
+                    animator.SetBool("isAttacking", true);
+                    throwSound.Play();
+                    reloadTimer = 20f;
                     spawnedAcorn = (GameObject)Instantiate(acorn, new Vector3(transform.position.x, transform.position.y, 10f), transform.rotation);
                     allSpawnedAcorns.Add(spawnedAcorn);
                     startFloat = 0f;
                 }
             }
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
         }
     }
 }

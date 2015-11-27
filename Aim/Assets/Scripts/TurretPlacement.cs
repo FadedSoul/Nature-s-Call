@@ -10,6 +10,8 @@ public class TurretPlacement : MonoBehaviour {
     [SerializeField] private List<GameObject> circlePrefabs;
     private GameObject spawnedSquirrel;
     private GameObject spawnedSquirrelCircle;
+    private GameObject spawnedBear;
+    private GameObject spawnedBearCircle;
     private Score score;
     private bool isSpawned = false;
 	private Camera camera;
@@ -33,7 +35,14 @@ public class TurretPlacement : MonoBehaviour {
     {
         tempCoins = score.coinGetter();
         if (isSpawned) {
-            spawnedSquirrelCircle.transform.position = new Vector2(spawnedSquirrel.transform.position.x,spawnedSquirrel.transform.position.y);
+            if (spawnedSquirrelCircle != null)
+            {
+                spawnedSquirrelCircle.transform.position = new Vector2(spawnedSquirrel.transform.position.x, spawnedSquirrel.transform.position.y);
+            }
+            if (spawnedBearCircle != null)
+            {
+                spawnedBearCircle.transform.position = new Vector2(spawnedBear.transform.position.x, spawnedBear.transform.position.y);
+            }
         }
     }
 
@@ -54,10 +63,13 @@ public class TurretPlacement : MonoBehaviour {
                 case "beer_character":
                     if (tempCoins >= 150)
                     {
-                        Instantiate(towerPrefabs[1], camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f)), transform.rotation);
+                        spawnedBear = (GameObject)Instantiate(towerPrefabs[1], camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f)), transform.rotation);
+                        spawnedBearCircle = (GameObject)Instantiate(circlePrefabs[1], camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f)), transform.rotation);
+                        isSpawned = true;
                         score.coinSetter(150);
                     }
                     break;
+                    /*
                 case "Moose_af":
                     if (tempCoins >= 200)
                     {
@@ -65,6 +77,7 @@ public class TurretPlacement : MonoBehaviour {
                         score.coinSetter(200);
                     }
                     break;
+                    */
 			}
 		}
 	}
