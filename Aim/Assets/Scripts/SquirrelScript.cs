@@ -60,11 +60,12 @@ public class SquirrelScript : MonoBehaviour {
             whichEnemy = hitColliders[hitColliders.Length - 1].gameObject;
             if (whichEnemy.transform.position.x < transform.position.x)
             {
-                transform.localScale = new Vector3(-0.4f, 0.4f, 1f);
+                transform.localScale = new Vector3(0.14f, 0.14f, 1f);
             }
             else
             {
-                transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+                transform.localScale = new Vector3(-0.14f, 0.14f, 1f);
+                
             }
             if (hitColliders[0].gameObject.GetComponent<EnemyScript>() != null)
             {
